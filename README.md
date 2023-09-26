@@ -1,7 +1,11 @@
-# pydecomp
-
 ![Logo](https://github.com/jonarriza96/pydecomp/raw/main/docs/logo/logo.png)
-A Python implementation of <a href="https://github.com/sikang/DecompUtil/raw/master">DecompUtil<sup></sup></a> for fast convex decomposition of obstacle-free spaces.
+**pydecomp — A Python implementation of <a href="https://github.com/sikang/DecompUtil/raw/master">DecompUtil<sup></sup></a> for fast convex decomposition of obstacle-free spaces.**
+
+[![PyPI version](https://badge.fury.io/py/pydecomp.svg)](https://badge.fury.io/py/pydecomp)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pydecomp)
+![PyPI - License](https://img.shields.io/pypi/l/pydecomp)
+
+<!-- ![PyPI - Downloads](https://img.shields.io/pypi/dm/pydecomp) -->
 
 ## Quickstart
 
@@ -11,10 +15,10 @@ Install dependencies with
     sudo apt-get install libcdd-dev libblas3 libblas-dev liblapack3 liblapack-dev gfortran
 ```
 
-and (in a virtual environment) install the package with
+and (in a virtual environment) install from PyPI with
 
 ```
-    pip install -i https://test.pypi.org/pypi/ --extra-index-url https://pypi.org/simple pydecomp==0.0.4
+    pip install pydecomp
 ```
 
 <!-- To install from source, see [here](#installing-from-source). -->
