@@ -3,4 +3,4 @@
 	url = https://github.com/sikang/DecompUtil.git
 [submodule "src/external/pybind11"]
 	path = src/external/pybind11
-	url = https://github.com/pybind/pybind11.git
+	url = https://github.com/pybind/pybind11
