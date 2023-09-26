@@ -67,3 +67,16 @@ Install the package with
 ```
     pip install .
 ```
+
+## Citing
+
+If you use this framework please cite our paper:
+
+```
+@article{arrizabalaga2022spatially,
+  title={Spatially Constrained Time-Optimal Motion Planning},
+  author={Arrizabalaga, Jon and Ryll, Markus},
+  journal={arXiv preprint arXiv:2210.02345},
+  year={2022}
+}
+```
