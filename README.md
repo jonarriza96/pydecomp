@@ -15,7 +15,7 @@ Install dependencies with
 and (in a virtual environment) install the package with
 
 ```
-    pip install .
+    pip install -i https://test.pypi.org/pypi/ --extra-index-url https://pypi.org/simple pydecomp==0.0.2
 ```
 
 <!-- To install from source, see [here](#installing-from-source). -->
@@ -49,18 +49,3 @@ The blue polyhedrons are the convex decomposition of the obstacle-free space. Th
 ### Transformation and normalization of the polyhedrons
 
 When using the environment generator for generating a dataset of corridors, it might be beneficial to represent all of them in a normalized and standard representation. Towards this aim, we provide the feature to normalize and translate the polyhedrons, so that the matrixes for the halfspaces are given by values between 0 and 1 and the origin coincides with the starting pose of the agent (green dot and frame). See [these functions](examples/random_corridor_generator.py#L26-31) for more details.
-
-## Installing from source
-
-After installing the dependencies given above, initialize git submodules with
-
-```
-    git submodule init
-    git submodule update
-```
-
-Install the package with
-
-```
-    pip install .
-```

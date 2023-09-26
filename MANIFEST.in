@@ -1,0 +1,7 @@
+include src/external/pybind11/include/pybind11/*.h
+include src/external/pybind11/include/pybind11/detail/*.h
+include src/external/pybind11/include/pybind11/eigen/*.h
+include src/external/pybind11/include/pybind11/stl/*.h
+include src/external/DecompUtil/include/decomp_basis/*.h
+include src/external/DecompUtil/include/decomp_geometry/*.h
+include src/external/DecompUtil/include/decomp_util/*.h
