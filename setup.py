@@ -20,7 +20,7 @@ setup(
     version="0.0.1",
     description="A Python package for decomposing obstacle free spaces into convex polygons",
     long_description="",
-    url="https://gitlab.lrz.de/mophler/pydecomp/-/tree/main",
+    url="https://github.com/jonarriza96/pydecomp",
     author="Jon Arrizabalaga",
     author_email="arrijon96@gmail.com",
     license="MIT",

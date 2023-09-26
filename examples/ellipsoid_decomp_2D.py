@@ -9,8 +9,7 @@ import pydecomp as pdc
 
 # obstacles
 obstacles = np.loadtxt(
-    str(Path(__file__).parent.parent.absolute())
-    + "/src/external/DecompUtil/data/obstacles.txt"
+    str(Path(__file__).parent.absolute()) + "/data/decomputil/obstacles.txt"
 )
 
 # path
