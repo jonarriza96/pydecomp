@@ -22,7 +22,7 @@ ext_modules = [
 
 setup(
     name="pydecomp",
-    version="0.0.3",
+    version="0.0.4",
     description="A Python package for decomposing obstacle free spaces into convex polygons",
     long_description=long_description,
     long_description_content_type="text/markdown",

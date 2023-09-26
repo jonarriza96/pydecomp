@@ -1,8 +1,7 @@
 # pydecomp
 
-![Logo](https://github.com/jonarriza96/pydecomp/tree/main/docs/logo/logo.png)
-
-A Python implementation of <a href="https://github.com/sikang/DecompUtil/tree/master">DecompUtil<sup></sup></a> for fast convex decomposition of obstacle-free spaces.
+![Logo](https://github.com/jonarriza96/pydecomp/raw/main/docs/logo/logo.png)
+A Python implementation of <a href="https://github.com/sikang/DecompUtil/raw/master">DecompUtil<sup></sup></a> for fast convex decomposition of obstacle-free spaces.
 
 ## Quickstart
 
@@ -15,7 +14,7 @@ Install dependencies with
 and (in a virtual environment) install the package with
 
 ```
-    pip install -i https://test.pypi.org/pypi/ --extra-index-url https://pypi.org/simple pydecomp==0.0.3
+    pip install -i https://test.pypi.org/pypi/ --extra-index-url https://pypi.org/simple pydecomp==0.0.4
 ```
 
 <!-- To install from source, see [here](#installing-from-source). -->
@@ -29,7 +28,7 @@ Given an occupancy grid map and a pieciwise linear path, the package returns a c
 To check a script to perform a convex decomposition out of a given occupancy grid map, see [this file](examples/ptcloud_decomp_2D.py) for a planar (2D) case or [this file](examples/ptcloud_decomp_3D.py) for a spatial (3D) case. We provide two exemplary maps (forest and office), which you can select by modifying [this line](examples/ptcloud_decomp_2D.py#L8).
 Forest - 2D | Office - 2D | Office - 3D
 :-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/jonarriza96/pydecomp/tree/main/docs/forest.png) | ![](https://github.com/jonarriza96/pydecomp/tree/main/docs/office.png) | ![](https://github.com/jonarriza96/pydecomp/tree/main/docs/office_3d.png)
+![](https://github.com/jonarriza96/pydecomp/raw/main/docs/forest.png) | ![](https://github.com/jonarriza96/pydecomp/raw/main/docs/office.png) | ![](https://github.com/jonarriza96/pydecomp/raw/main/docs/office_3d.png)
 
 For the most minimal example see [this file](examples/ellipsoid_decomp_2D.py), which replicates a [test case](https://github.com/sikang/DecompUtil/blob/master/test/test_ellipsoid_decomp.cpp) in the original repository.
 
@@ -42,7 +41,7 @@ Run [this file](examples/random_corridor_generator.py) to see how to generate ra
 See here two examples of corridors (planar and spatial) generated with the randomization algorithm:
 Planar | Spatial
 :-------------------------:|:-------------------------:
-![](https://github.com/jonarriza96/pydecomp/tree/main/docs/2d.png) | ![](https://github.com/jonarriza96/pydecomp/tree/main/docs/3d.png)
+![](https://github.com/jonarriza96/pydecomp/raw/main/docs/2d.png) | ![](https://github.com/jonarriza96/pydecomp/raw/main/docs/3d.png)
 
 The blue polyhedrons are the convex decomposition of the obstacle-free space. The inner black line depicts the underlying piecewise linear path used to construct the polyhedrons. The green and red dots, alongside their frames, refer to the starting and ending pose of the agent.
 
