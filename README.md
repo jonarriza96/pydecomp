@@ -1,5 +1,5 @@
 ![Logo](https://github.com/jonarriza96/pydecomp/raw/main/docs/logo/logo.png)
-**pydecomp — A Python implementation of <a href="https://github.com/sikang/DecompUtil/raw/master">DecompUtil<sup></sup></a> for fast convex decomposition of obstacle-free spaces.**
+**pydecomp — A Python implementation of <a href="https://github.com/sikang/DecompUtil/tree/master">DecompUtil<sup></sup></a> for fast convex decomposition of obstacle-free spaces.**
 
 [![PyPI version](https://badge.fury.io/py/pydecomp.svg)](https://badge.fury.io/py/pydecomp)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pydecomp)
