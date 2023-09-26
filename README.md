@@ -23,7 +23,7 @@ and (in a virtual environment) install from PyPI with
 
 <!-- To install from source, see [here](#installing-from-source). -->
 
-## Usage
+## Examples
 
 ### Convex decomposition of free space from occupancy grid map
 
@@ -34,7 +34,7 @@ Forest - 2D | Office - 2D | Office - 3D
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/jonarriza96/pydecomp/raw/main/docs/forest.png) | ![](https://github.com/jonarriza96/pydecomp/raw/main/docs/office.png) | ![](https://github.com/jonarriza96/pydecomp/raw/main/docs/office_3d.png)
 
-For the most minimal example see [this file](examples/ellipsoid_decomp_2D.py), which replicates a [test case](https://github.com/sikang/DecompUtil/blob/master/test/test_ellipsoid_decomp.cpp) in the original repository.
+For the most minimal example see [this file](examples/ellipsoid_decomp_2D.py), which replicates a [test case](https://github.com/sikang/DecompUtil/blob/master/test/test_ellipsoid_decomp.cpp) in the original <a href="https://github.com/sikang/DecompUtil/tree/master">DecompUtil<sup></sup></a> repository.
 
 ### Environment generation
 
