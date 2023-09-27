@@ -4,8 +4,7 @@
 [![PyPI version](https://badge.fury.io/py/pydecomp.svg)](https://badge.fury.io/py/pydecomp)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pydecomp)
 ![PyPI - License](https://img.shields.io/pypi/l/pydecomp)
-
-<!-- ![PyPI - Downloads](https://img.shields.io/pypi/dm/pydecomp) -->
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pydecomp)
 
 ## Quickstart
 
