@@ -23,7 +23,8 @@ elif world == "forest":
     )
 
 # --------------------------- Convex decomposition --------------------------- #
-A, b = pdc.convex_decomposition_2D(obstacles, path)
+box = np.array([[2, 2]])
+A, b = pdc.convex_decomposition_2D(obstacles, path, box)
 
 
 # ------------------------------- Visualization ------------------------------ #

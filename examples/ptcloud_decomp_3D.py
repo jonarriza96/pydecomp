@@ -16,9 +16,12 @@ obstacles = obstacles[:-1:10, :]
 # path
 path = np.array([[8, -3, 2], [11.5, -5, 2], [11, 11, 2]])
 
+# bounding box
+box = np.array([[1, 2, 1]])
+
 # ------------------------------- Decomposition ------------------------------ #
 # convex decomposition
-A, b = pdc.convex_decomposition_3D(obstacles, path)
+A, b = pdc.convex_decomposition_3D(obstacles, path, box)
 
 # ------------------------------- Visualization ------------------------------ #
 ax = pdc.visualize_environment(Al=A, bl=b, p=path, planar=False)

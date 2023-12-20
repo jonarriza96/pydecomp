@@ -25,6 +25,8 @@ path6 += np.array([6.2, 0])
 path7 += np.array([7.4, 0])
 path8 += np.array([9.1, 0])
 
+box = np.array([[2, 2]])
+
 # ------------------- Create a cloud of points per letter in pydecomp ------------------ #
 obstacle1 = np.array(
     [
@@ -196,7 +198,7 @@ obstacles = [
 letters = ["p", "y", "d", "e", "c", "o", "m", "p"]
 
 for path, obstacle, letter in zip(paths, obstacles, letters):
-    A, b = pdc.convex_decomposition_2D(obstacle, path)
+    A, b = pdc.convex_decomposition_2D(obstacle, path, box)
     ax = pdc.visualize_environment(Al=A, bl=b, p=path, planar=True, ax_view=False)
     ax.plot(path[:, 0], path[:, 1], "k-o")
     ax.plot(obstacle[:, 0], obstacle[:, 1], "ro")

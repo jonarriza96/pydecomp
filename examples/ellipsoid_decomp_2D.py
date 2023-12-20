@@ -14,10 +14,11 @@ obstacles = np.loadtxt(
 
 # path
 path = np.array([[1, 1], [0, 0], [-1, 1]])
+box = np.array([[2, 2]])
 
 # ------------------------------- Decomposition ------------------------------ #
 # convex decomposition
-A, b = pdc.convex_decomposition_2D(obstacles, path)
+A, b = pdc.convex_decomposition_2D(obstacles, path, box)
 
 # ------------------------------- Visualization ------------------------------ #
 ax = pdc.visualize_environment(Al=A, bl=b, p=path, planar=True)

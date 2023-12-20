@@ -13,7 +13,8 @@
 namespace py = pybind11;
 
 py::tuple convex_decomposition_2D(const py::array_t<double> obs_np,
-                                  const py::array_t<double> path_np) {
+                                  const py::array_t<double> path_np,
+                                  const py::array_t<double> box_np) {
 
   /* ------------------------------ Get obstacles -----------------------------
    */
@@ -49,7 +50,8 @@ py::tuple convex_decomposition_2D(const py::array_t<double> obs_np,
    */
   EllipsoidDecomp2D decomp; //(origin, range);
   decomp.set_obs(obs);
-  decomp.set_local_bbox(Vec2f(2, 2));
+  auto box_matrix = box_np.unchecked<2>(); // 2D matrix assumption
+  decomp.set_local_bbox(Vec2f(box_matrix(0, 0), box_matrix(0, 1)));
   decomp.dilate(path, 0);
 
   /* ----------------------- Get constraints A x - b < 0 ----------------------
@@ -96,7 +98,8 @@ py::tuple convex_decomposition_2D(const py::array_t<double> obs_np,
 }
 
 py::tuple convex_decomposition_3D(const py::array_t<double> obs_np,
-                                  const py::array_t<double> path_np) {
+                                  const py::array_t<double> path_np,
+                                  const py::array_t<double> box_np) {
 
   /* ------------------------------ Get obstacles -----------------------------
    */
@@ -132,7 +135,9 @@ py::tuple convex_decomposition_3D(const py::array_t<double> obs_np,
    */
   EllipsoidDecomp3D decomp; //(origin, range);
   decomp.set_obs(obs);
-  decomp.set_local_bbox(Vec3f(1, 2, 1));
+  auto box_matrix = box_np.unchecked<2>(); // 2D matrix assumption
+  decomp.set_local_bbox(
+      Vec3f(box_matrix(0, 0), box_matrix(0, 1), box_matrix(0, 2)));
   decomp.dilate(path);
 
   /* ----------------------- Get constraints A x - b < 0 ----------------------
