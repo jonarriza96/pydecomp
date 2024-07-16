@@ -35,7 +35,7 @@ To check a script to perform a convex decomposition out of a given occupancy gri
 
 For the most minimal example see [this file](examples/ellipsoid_decomp_2D.py), which replicates a [test case](https://github.com/sikang/DecompUtil/blob/master/test/test_ellipsoid_decomp.cpp) in the original <a href="https://github.com/sikang/DecompUtil/tree/master">DecompUtil<sup></sup></a> repository.
 
-https://github.com/jonarriza96/pydecomp/blob/ff4fc8247d79c0f969437192d49f7540f9a92058/examples/ellipsoid_decomp_2D.py#L5-L20
+https://github.com/jonarriza96/pydecomp/blob/1d1c6f97d6eff1f2b3b90bdb2f038eed0caa8578/examples/ellipsoid_decomp_2D.py#L5-L19
 
 ## Installing from source
 
