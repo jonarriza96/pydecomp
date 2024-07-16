@@ -4,9 +4,7 @@ from pathlib import Path
 
 import pydecomp as pdc
 
-
 # ---------------------------- Obstacles and path ---------------------------- #
-
 # obstacles
 obstacles = np.loadtxt(
     str(Path(__file__).parent.absolute()) + "/data/decomputil/obstacles.txt"
