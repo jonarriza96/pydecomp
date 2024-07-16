@@ -22,7 +22,7 @@ ext_modules = [
 
 setup(
     name="pydecomp",
-    version="0.0.5",
+    version="1.0.0",
     description="A Python package for decomposing obstacle free spaces into convex polygons",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -42,7 +42,6 @@ setup(
         "pycddlib==2.1.6",
         "pyny3d==0.1.1",
         "casadi==3.5.5",
-        "twine==5.1.1",
     ],
     ext_modules=ext_modules,
     packages=find_packages(where="src"),
