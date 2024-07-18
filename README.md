@@ -54,7 +54,19 @@ Install the package with
 
 ## Citing
 
-If you use this framework please cite our paper:
+If you use this framework please cite our papers:
+
+```
+@misc{arrizabalaga2024differentiablecollisionfreeparametriccorridors,
+      title={Differentiable Collision-Free Parametric Corridors}, 
+      author={Jon Arrizabalaga and Zachary Manchester and Markus Ryll},
+      year={2024},
+      eprint={2407.12283},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2407.12283}, 
+}
+```
 
 ```
 @inproceedings{arrizabalaga2023sctomp,
