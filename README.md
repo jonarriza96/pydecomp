@@ -78,3 +78,5 @@ If you use this framework please cite our papers:
   organization={IEEE}
 }
 ```
+## Related repositories
+For computing continuous and differentiable collision-free corridors, check out [CorrGen](https://github.com/jonarriza96/corrgen)!
