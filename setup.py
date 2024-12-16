@@ -1,5 +1,6 @@
 from setuptools import setup, find_packages, Extension
 from glob import glob
+import platform
 
 with open("README.md", "r") as f:
     long_description = f.read()
@@ -20,9 +21,27 @@ ext_modules = [
     )
 ]
 
+if platform.system() == "Linux":
+    packages = [
+            "numpy==1.23.0",
+            "matplotlib==3.5.2",
+            "scipy==1.8.1",
+            "pycddlib==2.1.6",
+            "pyny3d==0.1.1",
+            "casadi==3.5.5",
+        ]
+elif platform.system() == "Darwin":
+    packages = [
+            "numpy==1.23.0",
+            "matplotlib==3.5.2",
+            "scipy==1.8.1",
+            "pycddlib==2.1.6",
+            "pyny3d==0.1.1",
+            "casadi==3.6.5",
+        ]
 setup(
     name="pydecomp",
-    version="1.0.0",
+    version="1.0.1",
     description="A Python package for decomposing obstacle free spaces into convex polygons",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -35,14 +54,7 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent",
     ],
-    install_requires=[
-        "numpy==1.23.0",
-        "matplotlib==3.5.2",
-        "scipy==1.8.1",
-        "pycddlib==2.1.6",
-        "pyny3d==0.1.1",
-        "casadi==3.5.5",
-    ],
+    install_requires=packages,
     ext_modules=ext_modules,
     packages=find_packages(where="src"),
     package_dir={"": "src"},

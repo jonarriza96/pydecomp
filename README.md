@@ -8,13 +8,21 @@
 
 ## Quickstart
 
-Install dependencies with
+Install dependencies the following:
 
-```
-    sudo apt-get install libcdd-dev libblas3 libblas-dev liblapack3 liblapack-dev gfortran
-```
+* Linux:
+    ```
+        sudo apt-get install libcdd-dev libblas3 libblas-dev liblapack3 liblapack-dev gfortran
+    ```
 
-and (in a virtual environment) install from PyPI with
+* Mac:
+    ```
+        brew install cddlib gmp eigen openblas cython boost
+    ```
+
+    *Note*: Remember to set `LDFLAGS` and `CPPFLAGS` to the correct paths for the libraries.
+
+In a virtual environment, install from PyPI with
 
 ```
     pip install pydecomp
