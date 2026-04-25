@@ -135,3 +135,6 @@ __pycache__/
 
 ########## Other #########
 *.Identifier
+claude_*
+wheelhouse/
+.claude/
