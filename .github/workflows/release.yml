@@ -1,0 +1,123 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  check-version:
+    name: verify tag matches __version__
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compare git tag and package __version__
+        run: |
+          tag="${GITHUB_REF##*/}"
+          tag_ver="${tag#v}"
+          pkg_ver="$(grep -oE '__version__\s*=\s*"[^"]+"' src/pydecomp/__init__.py | sed -E 's/.*"([^"]+)".*/\1/')"
+          echo "git tag: $tag (-> $tag_ver)"
+          echo "package: $pkg_ver"
+          if [ "$tag_ver" != "$pkg_ver" ]; then
+            echo "::error::Tag $tag does not match __version__ ($pkg_ver)"
+            exit 1
+          fi
+
+  build-wheels:
+    name: wheels (${{ matrix.os }})
+    needs: check-version
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-13, macos-14]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build wheels
+        uses: pypa/cibuildwheel@v2.21.3
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wheels-${{ matrix.os }}
+          path: ./wheelhouse/*.whl
+
+  build-sdist:
+    name: sdist
+    needs: check-version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build sdist
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build --sdist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sdist
+          path: dist/*.tar.gz
+
+  publish:
+    name: publish to PyPI
+    needs: [build-wheels, build-sdist]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/pydecomp/
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+
+  github-release:
+    name: GitHub Release
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Extract changelog section
+        id: changelog
+        run: |
+          tag="${GITHUB_REF##*/}"
+          ver="${tag#v}"
+          if [ -f CHANGELOG.md ]; then
+            awk -v ver="$ver" '
+              $0 ~ "^## \\[" ver "\\]" {flag=1; next}
+              flag && /^## \[/ {exit}
+              flag {print}
+            ' CHANGELOG.md > release_notes.md
+          fi
+          if [ ! -s release_notes.md ]; then
+            echo "Release $tag" > release_notes.md
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          body_path: release_notes.md

@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=61", "wheel", "pybind11>=2.12"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pydecomp"
+description = "A Python package for decomposing obstacle free spaces into convex polygons"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Jon Arrizabalaga", email = "arrijon96@gmail.com" }]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: C++",
+]
+dependencies = [
+    "numpy>=1.23",
+    "matplotlib>=3.5",
+    "scipy>=1.8",
+    "pycddlib>=2.1",
+    "pyny3d>=0.1.1",
+    "casadi>=3.5",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = ["pytest", "build", "twine", "cibuildwheel"]
+
+[project.urls]
+Homepage = "https://github.com/jonarriza96/pydecomp"
+Repository = "https://github.com/jonarriza96/pydecomp"
+Issues = "https://github.com/jonarriza96/pydecomp/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.dynamic]
+version = { attr = "pydecomp.__version__" }
+
+[tool.cibuildwheel]
+build = "cp39-* cp310-* cp311-* cp312-* cp313-*"
+skip = "*-musllinux_* *-win32 *_i686 pp*"
+build-frontend = "build"
+test-command = "python -c \"import pydecomp; print(pydecomp.__version__)\""
+
+[tool.cibuildwheel.linux]
+manylinux-x86_64-image = "manylinux_2_28"
+manylinux-aarch64-image = "manylinux_2_28"
+archs = ["x86_64"]
+before-all = "dnf install -y eigen3-devel cddlib-devel lapack-devel blas-devel gmp-devel"
+
+[tool.cibuildwheel.macos]
+archs = ["x86_64", "arm64"]
+before-all = "brew install eigen cddlib gmp openblas boost"
+
+[[tool.cibuildwheel.overrides]]
+select = "*-macosx_arm64"
+environment = { EIGEN_INCLUDE_DIR = "/opt/homebrew/include/eigen3", MACOSX_DEPLOYMENT_TARGET = "11.0" }
+
+[[tool.cibuildwheel.overrides]]
+select = "*-macosx_x86_64"
+environment = { EIGEN_INCLUDE_DIR = "/usr/local/include/eigen3", MACOSX_DEPLOYMENT_TARGET = "10.15" }
