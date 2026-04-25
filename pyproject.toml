@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=77", "wheel", "pybind11>=2.12"]
+requires = ["setuptools>=61", "wheel", "pybind11>=2.12"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,10 +7,10 @@ name = "pydecomp"
 description = "A Python package for decomposing obstacle free spaces into convex polygons"
 readme = "README.md"
 requires-python = ">=3.9"
-license = "MIT"
-license-files = ["LICENSE"]
+license = { text = "MIT" }
 authors = [{ name = "Jon Arrizabalaga", email = "arrijon96@gmail.com" }]
 classifiers = [
+    "License :: OSI Approved :: MIT License",
     "Operating System :: POSIX :: Linux",
     "Operating System :: MacOS",
     "Programming Language :: Python :: 3",
@@ -61,7 +61,7 @@ test-command = "python -c \"import pydecomp; print(pydecomp.__version__)\""
 manylinux-x86_64-image = "manylinux_2_28"
 manylinux-aarch64-image = "manylinux_2_28"
 archs = ["x86_64"]
-before-all = "dnf install -y eigen3-devel cddlib-devel lapack-devel blas-devel gmp-devel boost-devel"
+before-all = "dnf install -y epel-release && dnf install -y eigen3-devel boost-devel"
 
 [tool.cibuildwheel.macos]
 archs = ["x86_64", "arm64"]
