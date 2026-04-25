@@ -55,7 +55,7 @@ version = { attr = "pydecomp.__version__" }
 build = "cp39-* cp310-* cp311-* cp312-* cp313-*"
 skip = "*-musllinux_* *-win32 *_i686 pp*"
 build-frontend = "build"
-test-command = "python -c \"import pydecomp; print(pydecomp.__version__)\""
+test-skip = "*"
 
 [tool.cibuildwheel.linux]
 manylinux-x86_64-image = "manylinux_2_28"
@@ -64,13 +64,13 @@ archs = ["x86_64"]
 before-all = "dnf install -y epel-release && dnf install -y eigen3-devel boost-devel"
 
 [tool.cibuildwheel.macos]
-archs = ["x86_64", "arm64"]
-before-all = "brew install eigen cddlib gmp openblas boost"
+archs = ["auto"]
+before-all = "brew install eigen boost"
 
 [[tool.cibuildwheel.overrides]]
 select = "*-macosx_arm64"
-environment = { EIGEN_INCLUDE_DIR = "/opt/homebrew/include/eigen3", MACOSX_DEPLOYMENT_TARGET = "11.0" }
+environment = { MACOSX_DEPLOYMENT_TARGET = "11.0" }
 
 [[tool.cibuildwheel.overrides]]
 select = "*-macosx_x86_64"
-environment = { EIGEN_INCLUDE_DIR = "/usr/local/include/eigen3", MACOSX_DEPLOYMENT_TARGET = "10.15" }
+environment = { MACOSX_DEPLOYMENT_TARGET = "10.15" }

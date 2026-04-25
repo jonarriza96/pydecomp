@@ -3,13 +3,15 @@ import os
 from setuptools import setup, Extension
 
 
-def _eigen_include_dirs():
+def _system_include_dirs():
     candidates = [
         os.environ.get("EIGEN_INCLUDE_DIR"),
         "/usr/include/eigen3",
         "/usr/local/include/eigen3",
         "/opt/homebrew/include/eigen3",
         "/opt/homebrew/opt/eigen/include/eigen3",
+        "/usr/local/include",
+        "/opt/homebrew/include",
     ]
     return [c for c in candidates if c and os.path.isdir(c)]
 
@@ -29,7 +31,7 @@ ext_modules = [
         include_dirs=[
             _pybind11_include(),
             "src/external/DecompUtil/include/",
-            *_eigen_include_dirs(),
+            *_system_include_dirs(),
         ],
         language="c++",
         extra_compile_args=["-std=c++17"],
