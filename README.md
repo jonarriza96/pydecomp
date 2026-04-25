@@ -60,14 +60,6 @@ Install the package with
     pip install .
 ```
 
-## Releasing
-
-Releases are automated. Bump `__version__` in `src/pydecomp/__init__.py`, update
-`CHANGELOG.md`, then push a `vX.Y.Z` git tag — GitHub Actions builds Linux +
-macOS wheels for Python 3.9–3.13 with `cibuildwheel`, publishes to PyPI via
-Trusted Publishing (OIDC), and creates a GitHub Release. Full instructions are
-in [RELEASING.md](RELEASING.md).
-
 ## Citing
 
 If you use this framework please cite our papers:
