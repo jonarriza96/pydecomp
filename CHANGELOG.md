@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.6] - 2026-04-25
+Bump `pypa/cibuildwheel` pin from `v2.21.3` → `v2`. The old pin tries to download virtualenv from a `github.com/pypa/get-virtualenv` URL that now returns HTTP 502, breaking macOS wheel builds (and stalling them on retry).
+
 ## [1.1.5] - 2026-04-25
 Fix wheel matrix: skip cibuildwheel test step (avoids `pycddlib` source build needing system cddlib), let macOS runners build only their native arch (`archs = ["auto"]`), and have `setup.py` add Homebrew/`/usr/local` include prefixes so `boost/geometry.hpp` is found.
 
