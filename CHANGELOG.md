@@ -4,6 +4,25 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-04-26
+
+### Changed (breaking, at the dependency boundary)
+- Cap `pycddlib<3`. The 3.x release rewrote its API (no more `cdd.Matrix(arr)` /
+  `mat.rep_type = ...` / `cdd.Polyhedron(mat)`), which silently broke
+  `_utils/visualize.py` and `_utils/environment.py` for users whose pip
+  resolvers picked the latest pycddlib. The pydecomp public API is unchanged;
+  the major bump is to mark the resolver-visible behavior change.
+
+### Added
+- `tests/` (pytest) covering import, public API surface, 2D decomposition
+  shapes, and an end-to-end `visualize_environment` regression test that
+  exercises the pycddlib code path. Wired into CI on Python 3.9–3.13.
+- README: dedicated **Conda** section with a verified install recipe
+  (conda-forge `cddlib`, `CPPFLAGS`/`LDFLAGS`, `tk` for matplotlib).
+
+## [1.1.9] - 2026-04-26
+Cap `pycddlib<3` (now superseded by the 2.0.0 entry).
+
 ## [1.1.8] - 2026-04-26
 Drop `macos-13` (Intel) from the wheel matrix. Free-tier Intel macOS runners are scarce and unreliable (jobs sit in queue for 10+ minutes); Apple Silicon (`macos-14`) coverage plus the sdist fallback is enough.
 

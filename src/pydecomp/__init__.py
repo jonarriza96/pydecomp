@@ -1,4 +1,4 @@
-__version__ = "1.1.8"
+__version__ = "2.0.0"
 
 from _pydecomp import *
 from ._utils.visualize import visualize_environment

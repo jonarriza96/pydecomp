@@ -30,6 +30,28 @@ In a virtual environment, install from PyPI with
 
 <!-- To install from source, see [here](#installing-from-source). -->
 
+### Conda
+
+`pycddlib` does not ship Linux/macOS wheels, so `pip` builds it from source and
+needs the `cddlib` C headers. In a conda environment the easiest path is to let
+conda-forge supply `cddlib` and point pip at the env's include/lib paths:
+
+```bash
+conda create -n pydecomp_env python=3.12 -y
+conda activate pydecomp_env
+conda install -c conda-forge cddlib tk -y           # tk gives matplotlib a working GUI backend
+
+export CPPFLAGS="-I$CONDA_PREFIX/include"
+export LDFLAGS="-L$CONDA_PREFIX/lib"
+
+pip install pydecomp
+python -c "import pydecomp; print(pydecomp.__version__)"
+```
+
+If `plt.show()` produces no window, `matplotlib` has no interactive backend —
+`conda install -c conda-forge tk` (above) fixes it; alternatively
+`pip install pyqt5`.
+
 ## Examples
 
 Forest - 2D | Office - 2D | Office - 3D
