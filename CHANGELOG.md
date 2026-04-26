@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.7] - 2026-04-26
+Pin `pypa/cibuildwheel@v2.23.4` (latest 2.x). Previous attempt to use the major-floating `v2` ref failed because the action publishes only specific point versions, not a `v2` tag.
+
 ## [1.1.6] - 2026-04-25
 Bump `pypa/cibuildwheel` pin from `v2.21.3` → `v2`. The old pin tries to download virtualenv from a `github.com/pypa/get-virtualenv` URL that now returns HTTP 502, breaking macOS wheel builds (and stalling them on retry).
 
