@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.8] - 2026-04-26
+Drop `macos-13` (Intel) from the wheel matrix. Free-tier Intel macOS runners are scarce and unreliable (jobs sit in queue for 10+ minutes); Apple Silicon (`macos-14`) coverage plus the sdist fallback is enough.
+
 ## [1.1.7] - 2026-04-26
 Pin `pypa/cibuildwheel@v2.23.4` (latest 2.x). Previous attempt to use the major-floating `v2` ref failed because the action publishes only specific point versions, not a `v2` tag.
 
